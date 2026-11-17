@@ -4,10 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ecosonograma Abdominal con énfasis Renal</title>
+<!-- Importamos fuentes elegantes estilo Ámsterdam / script -->
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
 <style>
   @page {
     size: letter portrait;
-    margin: 0.6cm 0.8cm;
+    margin: 0.5cm 0.7cm;
   }
 
   * {
@@ -17,9 +19,9 @@
   }
 
   body {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 9.2pt;
-    line-height: 1.25;
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 8.8pt;
+    line-height: 1.2;
     color: #111;
     background: #f4f4f4;
     font-weight: normal;
@@ -27,11 +29,15 @@
 
   .hoja {
     width: 21.59cm;
-    max-height: 27.94cm;
+    height: 27.94cm;
     margin: 10px auto;
     background: #fff;
-    padding: 0.6cm 0.8cm;
+    padding: 0.5cm 0.7cm;
     box-shadow: 0 0 8px rgba(0,0,0,0.12);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     overflow: hidden;
   }
 
@@ -41,9 +47,9 @@
     }
     .hoja {
       width: 100%;
-      max-height: none;
+      height: 100vh;
       margin: 0;
-      padding: 0;
+      padding: 0.5cm 0.7cm;
       box-shadow: none;
     }
     .no-print {
@@ -51,7 +57,7 @@
     }
   }
 
-  /* Barra de botones solo en pantalla */
+  /* Botón solo visible en pantalla */
   .no-print {
     text-align: right;
     width: 21.59cm;
@@ -67,38 +73,55 @@
     cursor: pointer;
   }
 
-  /* Membrete mínimo */
+  /* Contenido principal superior para evitar solapamiento con el pie fijo */
+  .contenido-principal {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Membrete mejorado */
   .membrete {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    border-bottom: 1px solid #333;
-    padding-bottom: 4px;
-    margin-bottom: 6px;
-  }
-  .membrete-izq {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    border-bottom: 1.5px solid #2c3e50;
+    padding-bottom: 6px;
+    margin-bottom: 8px;
   }
   .membrete img {
-    height: 44px;
+    height: 52px;
     width: auto;
     object-fit: contain;
+    margin-right: 12px;
   }
   .membrete-info {
-    font-size: 8.8pt;
-    line-height: 1.2;
-    font-weight: normal;
+    display: flex;
+    flex-direction: column;
+  }
+  .nombre-centro {
+    font-family: 'Caveat', cursive;
+    font-size: 19pt;
+    font-weight: 700;
+    color: #1a365d;
+    line-height: 1;
+    margin-bottom: 2px;
+  }
+  .nombre-dr {
+    font-size: 9pt;
+    font-weight: 600;
+    color: #444;
+    letter-spacing: 0.3px;
   }
 
   /* Título del informe (Única negrita junto con datos del paciente) */
   .titulo-informe {
     text-align: center;
-    font-size: 11pt;
+    font-size: 10.5pt;
     font-weight: bold;
-    margin: 4px 0 6px 0;
-    text-transform: none;
+    margin: 4px 0 8px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #222;
   }
 
   /* Datos del paciente */
@@ -106,10 +129,10 @@
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 6px;
-    font-size: 9pt;
+    font-size: 8.8pt;
   }
   .datos-paciente td {
-    padding: 1.5px 4px 1.5px 0;
+    padding: 2px 4px 2px 0;
     vertical-align: top;
   }
   .label-paciente {
@@ -117,49 +140,57 @@
   }
 
   .intro {
-    margin-bottom: 5px;
+    margin-bottom: 6px;
     text-align: justify;
-    font-size: 8.8pt;
+    font-size: 8.5pt;
   }
 
   /* Secciones clínicas - SIN NEGRITAS */
   .seccion {
     margin-bottom: 5px;
-    padding-bottom: 4px;
-    border-bottom: 0.5px solid #ddd;
+    padding-bottom: 3px;
+    border-bottom: 0.5px solid #eaeaea;
   }
-  .seccion:last-of-type {
-    border-bottom: none;
-  }
-
   .linea {
     margin-bottom: 2px;
   }
-
   .item {
     display: inline-block;
-    margin-right: 10px;
+    margin-right: 12px;
   }
-
   .alteraciones {
     margin-top: 1px;
-    min-height: 12px;
   }
 
   .bloque-final {
     margin-top: 4px;
+    margin-bottom: 4px;
   }
 
-  .firma {
-    margin-top: 18px;
+  /* Pie de página inamovible y área de firma */
+  .pie-pagina {
+    border-top: 1px solid #ccc;
+    padding-top: 6px;
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    font-size: 8.5pt;
+  }
+  .info-contacto-pie {
+    line-height: 1.3;
+    color: #333;
+  }
+  .firma-contenedor {
     text-align: center;
+    width: 210px;
   }
   .linea-firma {
-    display: inline-block;
-    width: 200px;
+    width: 100%;
     border-top: 1px solid #222;
-    padding-top: 2px;
-    font-size: 8.8pt;
+    padding-top: 3px;
+    font-size: 8.5pt;
+    color: #222;
   }
 </style>
 </head>
@@ -170,176 +201,180 @@
 </div>
 
 <div class="hoja">
-  <!-- MEMBRETE REDUCIDO -->
-  <div class="membrete">
-    <div class="membrete-izq">
+  <div class="contenido-principal">
+    <!-- MEMBRETE REDUCIDO Y ESTILIZADO -->
+    <div class="membrete">
       <img src="https://lh3.googleusercontent.com/d/1i_Cf2OP79eZtsSA82ebbHX009ycBkAfk" alt="Logo Centro Médico Ariyuri">
       <div class="membrete-info">
-        <div>Centro Medico Ariyuri C.A.</div>
-        <div>Zona Colonial - Petare</div>
-        <div>Teléfono: 04166110065</div>
+        <div class="nombre-centro">Centro Medico Ariyuri C.A.</div>
+        <div class="nombre-dr">Dr. Julio A. Linares Vargas</div>
       </div>
     </div>
+
+    <!-- TÍTULO EN NEGRITA -->
+    <div class="titulo-informe">Ecosonograma Abdominal con énfasis Renal</div>
+
+    <!-- DATOS DEL PACIENTE (ETIQUETAS EN NEGRITA) -->
+    <table class="datos-paciente">
+      <tr>
+        <td style="width: 52%;"><span class="label-paciente">Nombre y Apellido:</span> <span id="Nombre"></span></td>
+        <td style="width: 24%;"><span class="label-paciente">Cédula:</span> <span id="Cedula"></span></td>
+        <td style="width: 24%;"><span class="label-paciente">Fecha:</span> <span id="Fecha"></span></td>
+      </tr>
+      <tr>
+        <td><span class="label-paciente">Datos clínicos, síntomas:</span> <span id="Datos_clinicos_sintomas"></span></td>
+        <td><span class="label-paciente">Sexo:</span> <span id="Sexo"></span></td>
+        <td><span class="label-paciente">Edad:</span> <span id="Edad"></span></td>
+      </tr>
+    </table>
+
+    <div class="intro">
+      Se realiza Ecosonograma Abdominal con énfasis renal, utilizando transductor Convex 3,5 Mhz, realizando cortes transversales, oblicuos y longitudinales, observándose:
+    </div>
+
+    <!-- HÍGADO -->
+    <div class="seccion">
+      <div class="linea">
+        <span class="item">Hígado: Tamaño: <span id="Higado_Tamaño"></span></span>
+        <span class="item">Bordes: <span id="Bordes_H"></span></span>
+        <span class="item">Ecogenicidad: <span id="Ecogenicidad"></span></span>
+        <span class="item">Patrón: <span id="Patron_H"></span></span>
+        <span class="item">Diámetro V. Porta: <span id="Diametro_v_Porta"></span></span>
+      </div>
+      <div class="linea">
+        <span class="item">LOE: <span id="Loe_H"></span></span>
+        <span class="item">Quistes: <span id="Quistes_H"></span></span>
+        <span class="item">Calcificación: <span id="Calcificacion"></span></span>
+        <span class="item">Venas Hepáticas: <span id="Venas_Hepaticas"></span></span>
+        <span class="item">Signo hipertensión portal: <span id="Signo_hipertension_portal"></span></span>
+        <span class="item">Ascitis: <span id="Ascitis"></span></span>
+      </div>
+      <div class="alteraciones">Describir Alteraciones: <span id="Describir_Alteraciones_h"></span></div>
+    </div>
+
+    <!-- VESÍCULA Y VÍAS BILIARES -->
+    <div class="seccion">
+      <div class="linea">
+        <span class="item">Vesícula Biliar: Tamaño: <span id="Vesicula_Viliar_Tamaño"></span></span>
+        <span class="item">Pared: <span id="Pared"></span></span>
+        <span class="item">Litiasis: <span id="Litiasis"></span></span>
+        <span class="item">LOE: <span id="Loe_V"></span></span>
+        <span class="item">Pólipos: <span id="Polipos"></span></span>
+        <span class="item">Barro Biliar: <span id="Barro_Biliar"></span></span>
+      </div>
+      <div class="linea">
+        <span class="item">Vías Biliares: <span id="Vias_Biliares"></span></span>
+        <span class="item">Intrahepáticas Calibres: <span id="Intrahepaticas_Calibres"></span></span>
+        <span class="item">Extrahepáticas Calibres: <span id="Extrahepaticas_Calibres"></span></span>
+      </div>
+      <div class="alteraciones">Describir Alteraciones: <span id="Describir_alteraciones_V"></span></div>
+    </div>
+
+    <!-- PÁNCREAS, BAZO Y AORTA -->
+    <div class="seccion">
+      <div class="linea">
+        <span class="item">Páncreas: Contornos: <span id="Pancreas_Contornos"></span></span>
+        <span class="item">Patrón: <span id="Patron_P"></span></span>
+        <span class="item">Bazo: Diámetro: <span id="Bazo_Diametro"></span></span>
+        <span class="item">Grosor: <span id="Grosor_B"></span></span>
+        <span class="item">Patrón: <span id="Patron_B"></span></span>
+        <span class="item">LOE: <span id="Loe_B"></span></span>
+        <span class="item">Quistes: <span id="Quistes_B"></span></span>
+      </div>
+      <div class="linea">
+        <span class="item">Aorta: Calcificación: <span id="Aorta_Calcificacion"></span></span>
+        <span class="item">Ectasia: <span id="Ectasia"></span></span>
+        <span class="item">Aneurisma: <span id="Aneurisma"></span></span>
+      </div>
+      <div class="alteraciones">Describir Alteraciones: <span id="Describir_Alteraciones"></span></div>
+    </div>
+
+    <!-- RIÑÓN DERECHO -->
+    <div class="seccion">
+      <div class="linea">
+        <span class="item">Riñón Derecho: Tamaño: <span id="Rinon_Derecho_Tamaño"></span></span>
+        <span class="item">L: <span id="L"></span></span>
+        <span class="item">T: <span id="T"></span></span>
+        <span class="item">O: <span id="O"></span></span>
+        <span class="item">Posición Normal: <span id="Posicion_Normal_RD"></span></span>
+        <span class="item">Ptósica: <span id="Ptosica_RD"></span></span>
+      </div>
+      <div class="linea">
+        <span class="item">Litiasis: <span id="Litiasis_48"></span></span>
+        <span class="item">LOE: <span id="Loe_Rd"></span></span>
+        <span class="item">Quistes: <span id="Quistes_RD"></span></span>
+        <span class="item">Relación Cortico Medular: <span id="Relacion_Cortico_Medular_RD"></span></span>
+        <span class="item">Sistema Pielocalicial Dilatación: <span id="Sistema_Pielocalicial_Dilatacion_RD"></span></span>
+      </div>
+      <div class="alteraciones">Describir Alteraciones: <span id="Describir_alteraciones_RD"></span></div>
+    </div>
+
+    <!-- RIÑÓN IZQUIERDO -->
+    <div class="seccion">
+      <div class="linea">
+        <span class="item">Riñón Izquierdo: Tamaño: <span id="Rinon_Izquierdo_Tamaño"></span></span>
+        <span class="item">L: <span id="L_ri"></span></span>
+        <span class="item">T: <span id="T_RI"></span></span>
+        <span class="item">O: <span id="O_RI"></span></span>
+        <span class="item">Posición Normal: <span id="Posicion_Normal_RI"></span></span>
+        <span class="item">Ptósica: <span id="Ptosica_RI"></span></span>
+      </div>
+      <div class="linea">
+        <span class="item">Litiasis: <span id="Litiasis_60"></span></span>
+        <span class="item">LOE: <span id="Loe_RI"></span></span>
+        <span class="item">Quistes: <span id="Quistes_RI"></span></span>
+        <span class="item">Relación Cortico Medular: <span id="Relacion_Cortico_Medular_RI"></span></span>
+        <span class="item">Sistema Pielocalicial Dilatación: <span id="Sistema_Pielocalicial_Dilatacion_RI"></span></span>
+      </div>
+      <div class="alteraciones">Describir Alteraciones: <span id="Describir_alteraciones_RI"></span></div>
+    </div>
+
+    <!-- GLÁNDULAS SUPRARRENALES -->
+    <div class="seccion">
+      <div class="linea">
+        <span class="item">Glándulas Suprarrenales: Visibles: <span id="Glandulas_Suprarrenales_Visibles"></span></span>
+        <span class="item">Describir alteraciones: <span id="Describir_SP"></span></span>
+      </div>
+    </div>
+
+    <!-- VEJIGA -->
+    <div class="seccion">
+      <div class="linea">
+        <span class="item">Vejiga: Diámetro: <span id="Vejiga_Diametro"></span></span>
+        <span class="item">L: <span id="L_V"></span></span>
+        <span class="item">T: <span id="T_V"></span></span>
+        <span class="item">O: <span id="O_V"></span></span>
+        <span class="item">Volumen Residual (postmicción): <span id="Volumen_Residual"></span></span>
+      </div>
+      <div class="linea">
+        <span class="item">Pared Vesical: Grosor de la pared: <span id="Pared_Vesical_Grosor"></span></span>
+        <span class="item">Edematosa: <span id="Edematosa"></span></span>
+        <span class="item">Litiasis: <span id="Litiasis_75"></span></span>
+        <span class="item">Ureterocele: <span id="Ureterocele"></span></span>
+      </div>
+      <div class="alteraciones">Describir alteraciones: <span id="Describir_alteraciones_Vejiga"></span></div>
+    </div>
+
+    <!-- DIAGNÓSTICO Y RECOMENDACIONES -->
+    <div class="bloque-final">
+      <div class="linea" style="margin-bottom: 3px;">Diagnóstico: <span id="Diagnostico"></span></div>
+      <div class="linea">Recomendaciones: <span id="Recomendaciones"></span></div>
+    </div>
   </div>
 
-  <!-- TÍTULO EN NEGRITA -->
-  <div class="titulo-informe">Ecosonograma Abdominal con énfasis Renal</div>
-
-  <!-- DATOS DEL PACIENTE (ETIQUETAS EN NEGRITA) -->
-  <table class="datos-paciente">
-    <tr>
-      <td style="width: 55%;"><span class="label-paciente">Nombre y Apellido:</span> <span id="Nombre"></span></td>
-      <td style="width: 22%;"><span class="label-paciente">Cédula:</span> <span id="Cedula"></span></td>
-      <td style="width: 23%;"><span class="label-paciente">Fecha:</span> <span id="Fecha"></span></td>
-    </tr>
-    <tr>
-      <td><span class="label-paciente">Datos clínicos, síntomas:</span> <span id="Datos_clinicos_sintomas"></span></td>
-      <td><span class="label-paciente">Sexo:</span> <span id="Sexo"></span></td>
-      <td><span class="label-paciente">Edad:</span> <span id="Edad"></span></td>
-    </tr>
-  </table>
-
-  <div class="intro">
-    Se realiza Ecosonograma Abdominal con énfasis renal, utilizando transductor Convex 3,5 Mhz, realizando cortes transversales, oblicuos y longitudinales, observándose:
-  </div>
-
-  <!-- HÍGADO -->
-  <div class="seccion">
-    <div class="linea">
-      <span class="item">Hígado: Tamaño: <span id="Higado_Tamaño"></span></span>
-      <span class="item">Bordes: <span id="Bordes_H"></span></span>
-      <span class="item">Ecogenicidad: <span id="Ecogenicidad"></span></span>
-      <span class="item">Patrón: <span id="Patron_H"></span></span>
-      <span class="item">Diámetro V. Porta: <span id="Diametro_v_Porta"></span></span>
+  <!-- PIE DE PÁGINA INAMOVIBLE Y ESPACIO DE FIRMA -->
+  <div class="pie-pagina">
+    <div class="info-contacto-pie">
+      <div>Zona Colonial - Petare</div>
+      <div>Teléfono: 04166110065</div>
     </div>
-    <div class="linea">
-      <span class="item">LOE: <span id="Loe_H"></span></span>
-      <span class="item">Quistes: <span id="Quistes_H"></span></span>
-      <span class="item">Calcificación: <span id="Calcificacion"></span></span>
-      <span class="item">Venas Hepáticas: <span id="Venas_Hepaticas"></span></span>
-      <span class="item">Signo hipertensión portal: <span id="Signo_hipertension_portal"></span></span>
-      <span class="item">Ascitis: <span id="Ascitis"></span></span>
+    <div class="firma-contenedor">
+      <div class="linea-firma">Firma</div>
     </div>
-    <div class="alteraciones">Describir Alteraciones: <span id="Describir_Alteraciones_h"></span></div>
-  </div>
-
-  <!-- VESÍCULA Y VÍAS BILIARES -->
-  <div class="seccion">
-    <div class="linea">
-      <span class="item">Vesícula Biliar: Tamaño: <span id="Vesicula_Viliar_Tamaño"></span></span>
-      <span class="item">Pared: <span id="Pared"></span></span>
-      <span class="item">Litiasis: <span id="Litiasis"></span></span>
-      <span class="item">LOE: <span id="Loe_V"></span></span>
-      <span class="item">Pólipos: <span id="Polipos"></span></span>
-      <span class="item">Barro Biliar: <span id="Barro_Biliar"></span></span>
-    </div>
-    <div class="linea">
-      <span class="item">Vías Biliares: <span id="Vias_Biliares"></span></span>
-      <span class="item">Intrahepáticas Calibres: <span id="Intrahepaticas_Calibres"></span></span>
-      <span class="item">Extrahepáticas Calibres: <span id="Extrahepaticas_Calibres"></span></span>
-    </div>
-    <div class="alteraciones">Describir Alteraciones: <span id="Describir_alteraciones_V"></span></div>
-  </div>
-
-  <!-- PÁNCREAS, BAZO Y AORTA -->
-  <div class="seccion">
-    <div class="linea">
-      <span class="item">Páncreas: Contornos: <span id="Pancreas_Contornos"></span></span>
-      <span class="item">Patrón: <span id="Patron_P"></span></span>
-      <span class="item">| Bazo: Diámetro: <span id="Bazo_Diametro"></span></span>
-      <span class="item">Grosor: <span id="Grosor_B"></span></span>
-      <span class="item">Patrón: <span id="Patron_B"></span></span>
-      <span class="item">LOE: <span id="Loe_B"></span></span>
-      <span class="item">Quistes: <span id="Quistes_B"></span></span>
-    </div>
-    <div class="linea">
-      <span class="item">Aorta: Calcificación: <span id="Aorta_Calcificacion"></span></span>
-      <span class="item">Ectasia: <span id="Ectasia"></span></span>
-      <span class="item">Aneurisma: <span id="Aneurisma"></span></span>
-    </div>
-    <div class="alteraciones">Describir Alteraciones: <span id="Describir_Alteraciones"></span></div>
-  </div>
-
-  <!-- RIÑÓN DERECHO -->
-  <div class="seccion">
-    <div class="linea">
-      <span class="item">Riñón Derecho: Tamaño: <span id="Rinon_Derecho_Tamaño"></span></span>
-      <span class="item">L: <span id="L"></span></span>
-      <span class="item">T: <span id="T"></span></span>
-      <span class="item">O: <span id="O"></span></span>
-      <span class="item">Posición Normal: <span id="Posicion_Normal_RD"></span></span>
-      <span class="item">Ptósica: <span id="Ptosica_RD"></span></span>
-    </div>
-    <div class="linea">
-      <span class="item">Litiasis: <span id="Litiasis_48"></span></span>
-      <span class="item">LOE: <span id="Loe_Rd"></span></span>
-      <span class="item">Quistes: <span id="Quistes_RD"></span></span>
-      <span class="item">Relación Cortico Medular: <span id="Relacion_Cortico_Medular_RD"></span></span>
-      <span class="item">Sistema Pielocalicial Dilatación: <span id="Sistema_Pielocalicial_Dilatacion_RD"></span></span>
-    </div>
-    <div class="alteraciones">Describir Alteraciones: <span id="Describir_alteraciones_RD"></span></div>
-  </div>
-
-  <!-- RIÑÓN IZQUIERDO -->
-  <div class="seccion">
-    <div class="linea">
-      <span class="item">Riñón Izquierdo: Tamaño: <span id="Rinon_Izquierdo_Tamaño"></span></span>
-      <span class="item">L: <span id="L_ri"></span></span>
-      <span class="item">T: <span id="T_RI"></span></span>
-      <span class="item">O: <span id="O_RI"></span></span>
-      <span class="item">Posición Normal: <span id="Posicion_Normal_RI"></span></span>
-      <span class="item">Ptósica: <span id="Ptosica_RI"></span></span>
-    </div>
-    <div class="linea">
-      <span class="item">Litiasis: <span id="Litiasis_60"></span></span>
-      <span class="item">LOE: <span id="Loe_RI"></span></span>
-      <span class="item">Quistes: <span id="Quistes_RI"></span></span>
-      <span class="item">Relación Cortico Medular: <span id="Relacion_Cortico_Medular_RI"></span></span>
-      <span class="item">Sistema Pielocalicial Dilatación: <span id="Sistema_Pielocalicial_Dilatacion_RI"></span></span>
-    </div>
-    <div class="alteraciones">Describir Alteraciones: <span id="Describir_alteraciones_RI"></span></div>
-  </div>
-
-  <!-- GLÁNDULAS SUPRARRENALES -->
-  <div class="seccion">
-    <div class="linea">
-      <span class="item">Glándulas Suprarrenales: Visibles: <span id="Glandulas_Suprarrenales_Visibles"></span></span>
-      <span class="item">Describir alteraciones: <span id="Describir_SP"></span></span>
-    </div>
-  </div>
-
-  <!-- VEJIGA -->
-  <div class="seccion">
-    <div class="linea">
-      <span class="item">Vejiga: Diámetro: <span id="Vejiga_Diametro"></span></span>
-      <span class="item">L: <span id="L_V"></span></span>
-      <span class="item">T: <span id="T_V"></span></span>
-      <span class="item">O: <span id="O_V"></span></span>
-      <span class="item">Volumen Residual (postmicción): <span id="Volumen_Residual"></span></span>
-    </div>
-    <div class="linea">
-      <span class="item">Pared Vesical: Grosor de la pared: <span id="Pared_Vesical_Grosor"></span></span>
-      <span class="item">Edematosa: <span id="Edematosa"></span></span>
-      <span class="item">Litiasis: <span id="Litiasis_75"></span></span>
-      <span class="item">Ureterocele: <span id="Ureterocele"></span></span>
-    </div>
-    <div class="alteraciones">Describir alteraciones: <span id="Describir_alteraciones_Vejiga"></span></div>
-  </div>
-
-  <!-- DIAGNÓSTICO Y RECOMENDACIONES -->
-  <div class="bloque-final">
-    <div class="linea" style="margin-bottom: 4px;">Diagnóstico: <span id="Diagnostico"></span></div>
-    <div class="linea">Recomendaciones: <span id="Recomendaciones"></span></div>
-  </div>
-
-  <!-- FIRMA -->
-  <div class="firma">
-    <div class="linea-firma">Firma</div>
   </div>
 </div>
 
 <script>
-  // Lee automáticamente todos los parámetros enviados desde la Acción de AppSheet en la URL
   window.addEventListener('DOMContentLoaded', () => {
     const params = new URLSearchParams(window.location.search);
     params.forEach((value, key) => {
