@@ -393,15 +393,33 @@
 
 <script>
   window.addEventListener('DOMContentLoaded', () => {
-    // Limpiamos la URL por si AppSheet agrega signos '?' duplicados al inicio
+    // Limpiamos la URL de signos de interrogación múltiples al inicio
     const cleanSearch = window.location.search.replace(/^\?+/, '');
     const params = new URLSearchParams(cleanSearch);
 
     params.forEach((value, key) => {
-      // Normalizamos la clave para que coincida exactamente con los id del HTML (incluyendo tildes y espacios)
-      const el = document.getElementById(key);
-      if (el && value) {
-        el.textContent = decodeURIComponent(value.replace(/\+/g, ' '));
+      // Decodificamos el valor de la URL
+      const decodedValue = decodeURIComponent(value.replace(/\+/g, ' '));
+
+      // 1. Intentamos buscar el elemento por su ID exacto
+      let el = document.getElementById(key);
+
+      // 2. Si no aparece, buscamos limpiando posibles variaciones de espacios o codificación
+      if (!el) {
+        // Buscamos de forma flexible recorriendo todos los elementos que tengan ID
+        const allElements = document.querySelectorAll('[id]');
+        for (let elem of allElements) {
+          const elemIdClean = elem.id.trim().replace(/\s+/g, '_').toLowerCase();
+          const keyClean = key.trim().replace(/\s+/g, '_').toLowerCase();
+          if (elemIdClean === keyClean) {
+            el = elem;
+            break;
+          }
+        }
+      }
+
+      if (el) {
+        el.textContent = decodedValue;
       }
     });
   });
