@@ -4,8 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ecosonograma Abdominal con énfasis Renal</title>
-<!-- Importamos fuentes elegantes estilo Ámsterdam / script -->
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+<!-- Importamos la tipografía Amsterdam 4 y Montserrat -->
+<link href="https://fonts.googleapis.com/css2?family=Amsterdam+Four&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
 <style>
   @page {
     size: letter portrait;
@@ -73,14 +74,14 @@
     cursor: pointer;
   }
 
-  /* Contenido principal superior para evitar solapamiento con el pie fijo */
+  /* Contenido principal superior */
   .contenido-principal {
     flex: 1;
     display: flex;
     flex-direction: column;
   }
 
-  /* Membrete mejorado */
+  /* Membrete con fuente Amsterdam 4 y especialidades */
   .membrete {
     display: flex;
     align-items: center;
@@ -99,18 +100,17 @@
     flex-direction: column;
   }
   .nombre-centro {
-    font-family: 'Caveat', cursive;
-    font-size: 19pt;
-    font-weight: 700;
+    font-family: 'Amsterdam Four', 'Great Vibes', cursive;
+    font-size: 21pt;
     color: #1a365d;
     line-height: 1;
     margin-bottom: 2px;
   }
-  .nombre-dr {
-    font-size: 9pt;
+  .servicios-centro {
+    font-size: 7.8pt;
     font-weight: 600;
     color: #444;
-    letter-spacing: 0.3px;
+    letter-spacing: 0.2px;
   }
 
   /* Título del informe (Única negrita junto con datos del paciente) */
@@ -167,30 +167,36 @@
     margin-bottom: 4px;
   }
 
-  /* Pie de página inamovible y área de firma */
+  /* Pie de página inamovible estructurado al centro con la firma */
   .pie-pagina {
-    border-top: 1px solid #ccc;
-    padding-top: 6px;
+    border-top: 1px solid #ddd;
+    padding-top: 4px;
     margin-top: auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    font-size: 8.5pt;
-  }
-  .info-contacto-pie {
-    line-height: 1.3;
-    color: #333;
-  }
-  .firma-contenedor {
     text-align: center;
-    width: 210px;
+    font-size: 10pt;
+  }
+  .firma-area {
+    width: 240px;
+    margin: 0 auto;
   }
   .linea-firma {
-    width: 100%;
     border-top: 1px solid #222;
-    padding-top: 3px;
-    font-size: 8.5pt;
-    color: #222;
+    padding-top: 2px;
+    margin-bottom: 2px;
+  }
+  .dr-firma-texto {
+    font-weight: 600;
+    line-height: 1.15;
+  }
+  .cedula-firma {
+    font-size: 9.5pt;
+    color: #333;
+    margin-bottom: 12px;
+  }
+  .info-contacto-pie {
+    font-size: 8pt;
+    color: #555;
+    line-height: 1.2;
   }
 </style>
 </head>
@@ -202,12 +208,12 @@
 
 <div class="hoja">
   <div class="contenido-principal">
-    <!-- MEMBRETE REDUCIDO Y ESTILIZADO -->
+    <!-- MEMBRETE CON AMSTERDAM 4 Y SERVICIOS -->
     <div class="membrete">
       <img src="https://lh3.googleusercontent.com/d/1i_Cf2OP79eZtsSA82ebbHX009ycBkAfk" alt="Logo Centro Médico Ariyuri">
       <div class="membrete-info">
         <div class="nombre-centro">Centro Medico Ariyuri C.A.</div>
-        <div class="nombre-dr">Dr. Julio A. Linares Vargas</div>
+        <div class="servicios-centro">Ginecología y Obstetricia, Ecosonografía, Cirugías, Citologías, Biopsias, control ITS</div>
       </div>
     </div>
 
@@ -362,14 +368,16 @@
     </div>
   </div>
 
-  <!-- PIE DE PÁGINA INAMOVIBLE Y ESPACIO DE FIRMA -->
+  <!-- PIE DE PÁGINA INAMOVIBLE -->
   <div class="pie-pagina">
-    <div class="info-contacto-pie">
-      <div>Zona Colonial - Petare</div>
-      <div>Teléfono: 04166110065</div>
+    <div class="firma-area">
+      <div class="linea-firma"></div>
+      <div class="dr-firma-texto">Dr. Julio A. Linares Vargas</div>
+      <div class="dr-firma-texto" style="font-weight: normal;">Ecografista</div>
+      <div class="cedula-firma">C.I. V-12.638.442</div>
     </div>
-    <div class="firma-contenedor">
-      <div class="linea-firma">Firma</div>
+    <div class="info-contacto-pie">
+      Zona Colonial - Petare &nbsp;|&nbsp; Teléfono: 04166110065
     </div>
   </div>
 </div>
