@@ -395,12 +395,25 @@
   window.addEventListener('DOMContentLoaded', () => {
     const params = new URLSearchParams(window.location.search);
     params.forEach((value, key) => {
-      const el = document.getElementById(key);
-      if (el) {
-        // Decodifica por si viene con codificación URL (%2F, etc.)
+      // Normalizamos la clave para evitar problemas con mayúsculas/minúsculas o tildes
+      const normalizedKey = key.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+      
+      // Buscamos elementos que coincidan con la clave o su versión normalizada
+      const el = document.getElementById(key) || document.getElementById(normalizedKey);
+      if (el && value) {
         el.textContent = decodeURIComponent(value.replace(/\+/g, ' '));
       }
     });
+
+    // Respaldo por si la fecha llega vacía desde AppSheet
+    const fechaEl = document.getElementById('Fecha') || document.getElementById('fecha');
+    if (fechaEl && !fechaEl.textContent.trim()) {
+      const hoy = new Date();
+      const dia = String(hoy.getDate()).padStart(2, '0');
+      const mes = String(hoy.getMonth() + 1).padStart(2, '0');
+      const anio = hoy.getFullYear();
+      fechaEl.textContent = `${dia}/${mes}/${anio}`;
+    }
   });
 </script>
 
