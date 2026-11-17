@@ -199,7 +199,7 @@
     font-size: 9.5pt;
     color: #333;
     line-height: 1.2;
-    margin-bottom: 12px; /* Espacio antes de la dirección */
+    margin-bottom: 12px;
   }
   .info-contacto-pie {
     font-size: 8.2pt;
@@ -397,7 +397,8 @@
     params.forEach((value, key) => {
       const el = document.getElementById(key);
       if (el) {
-        el.textContent = value;
+        // Decodifica por si viene con codificación URL (%2F, etc.)
+        el.textContent = decodeURIComponent(value.replace(/\+/g, ' '));
       }
     });
   });
