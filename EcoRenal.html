@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ecosonograma Renal</title>
+<!-- Importamos la tipografía Amsterdam 4 y Montserrat -->
+<link href="https://fonts.googleapis.com/css2?family=Amsterdam+Four&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+  @page {
+    size: letter portrait;
+    margin: 0.6cm 0.8cm;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 10pt;
+    line-height: 1.25;
+    color: #111;
+    background: #f4f4f4;
+    font-weight: normal;
+  }
+
+  .hoja {
+    width: 21.59cm;
+    height: 27.94cm;
+    margin: 10px auto;
+    background: #fff;
+    padding: 0.6cm 0.8cm;
+    box-shadow: 0 0 8px rgba(0,0,0,0.12);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+  }
+
+  @media print {
+    body {
+      background: #fff;
+    }
+    .hoja {
+      width: 100%;
+      height: 100vh;
+      margin: 0;
+      padding: 0.6cm 0.8cm;
+      box-shadow: none;
+    }
+    .no-print {
+      display: none !important;
+    }
+  }
+
+  /* Botón solo visible en pantalla */
+  .no-print {
+    text-align: right;
+    width: 21.59cm;
+    margin: 8px auto 0;
+  }
+  .btn-print {
+    background: #1a5276;
+    color: #fff;
+    border: none;
+    padding: 6px 14px;
+    font-size: 9pt;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  /* Contenido principal superior */
+  .contenido-principal {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  /* Membrete con fuente Amsterdam 4 y servicios */
+  .membrete {
+    display: flex;
+    align-items: center;
+    border-bottom: 1.5px solid #2c3e50;
+    padding-bottom: 6px;
+    margin-bottom: 10px;
+  }
+  .membrete img {
+    height: 52px;
+    width: auto;
+    object-fit: contain;
+    margin-right: 12px;
+  }
+  .membrete-info {
+    display: flex;
+    flex-direction: column;
+  }
+  .nombre-centro {
+    font-family: 'Amsterdam Four', 'Great Vibes', cursive;
+    font-size: 21pt;
+    color: #1a365d;
+    line-height: 1;
+    margin-bottom: 3px;
+  }
+  .servicios-centro {
+    font-size: 7.8pt;
+    font-weight: 600;
+    color: #444;
+    letter-spacing: 0.2px;
+  }
+
+  /* Título del informe (Única negrita junto con datos del paciente) */
+  .titulo-informe {
+    text-align: center;
+    font-size: 11pt;
+    font-weight: bold;
+    margin: 6px 0 10px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #222;
+  }
+
+  /* Datos del paciente */
+  .datos-paciente {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 8px;
+    font-size: 9.8pt;
+  }
+  .datos-paciente td {
+    padding: 2.5px 4px 2.5px 0;
+    vertical-align: top;
+  }
+  .label-paciente {
+    font-weight: bold;
+  }
+
+  /* Texto introductorio despejado */
+  .intro {
+    margin-top: 12px;
+    margin-bottom: 12px;
+    text-align: justify;
+    font-size: 9.8pt;
+  }
+
+  /* Secciones clínicas - SIN NEGRITAS */
+  .seccion {
+    margin-bottom: 8px;
+    padding-bottom: 5px;
+    border-bottom: 0.5px solid #eaeaea;
+  }
+  .linea {
+    margin-bottom: 2.5px;
+  }
+  .item {
+    display: inline-block;
+    margin-right: 11px;
+  }
+  .alteraciones {
+    margin-top: 2px;
+  }
+
+  .bloque-final {
+    margin-top: 10px;
+    margin-bottom: 6px;
+  }
+  .bloque-final .linea {
+    margin-bottom: 5px;
+  }
+
+  /* Pie de página inamovible perfectamente equilibrado */
+  .pie-pagina {
+    border-top: 1px solid #ddd;
+    padding-top: 6px;
+    margin-top: auto;
+    text-align: center;
+    font-size: 10pt;
+  }
+  .firma-area {
+    width: 260px;
+    margin: 0 auto;
+  }
+  .linea-firma {
+    border-top: 1px solid #222;
+    padding-top: 2px;
+    margin-bottom: 3px;
+  }
+  .dr-firma-texto {
+    font-weight: 600;
+    line-height: 1.15;
+    font-size: 10pt;
+  }
+  .cedula-firma {
+    font-size: 9.5pt;
+    color: #333;
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+  .info-contacto-pie {
+    font-size: 8.2pt;
+    color: #555;
+    line-height: 1.2;
+  }
+</style>
+</head>
+<body>
+
+<div class="no-print">
+  <button class="btn-print" onclick="window.print()">Imprimir / Guardar PDF</button>
+</div>
+
+<div class="hoja">
+  <div class="contenido-principal">
+    <!-- MEMBRETE CON AMSTERDAM 4 Y SERVICIOS -->
+    <div class="membrete">
+      <img src="https://lh3.googleusercontent.com/d/1i_Cf2OP79eZtsSA82ebbHX009ycBkAfk" alt="Logo Centro Médico Ariyuri">
+      <div class="membrete-info">
+        <div class="nombre-centro">Centro Medico Ariyuri C.A.</div>
+        <div class="servicios-centro">Ginecología y Obstetricia, Ecosonografía, Cirugías, Citologías, Biopsias, control ITS</div>
+      </div>
+    </div>
+
+    <!-- TÍTULO EN NEGRITA -->
+    <div class="titulo-informe">Ecosonograma Renal</div>
+
+    <!-- DATOS DEL PACIENTE (ETIQUETAS EN NEGRITA) -->
+    <table class="datos-paciente">
+      <tr>
+        <td style="width: 52%;"><span class="label-paciente">Nombre y Apellido:</span> <span id="Nombre"></span></td>
+        <td style="width: 24%;"><span class="label-paciente">Cédula:</span> <span id="Cedula"></span></td>
+        <td style="width: 24%;"><span class="label-paciente">Fecha:</span> <span id="Fecha"></span></td>
+      </tr>
+      <tr>
+        <td><span class="label-paciente">Datos clínicos, síntomas:</span> <span id="Datos_clinicos_sintomas"></span></td>
+        <td><span class="label-paciente">Sexo:</span> <span id="Sexo"></span></td>
+        <td><span class="label-paciente">Edad:</span> <span id="Edad"></span></td>
+      </tr>
+    </table>
+
+    <!-- INTRODUCCIÓN SEPARADA Y DESPEJADA -->
+    <div class="intro">
+      Se realiza Ecosonograma Renal, utilizando transductor Convex 3,5 MHz, realizando cortes transversales, oblicuos y longitudinales, observándose:
+    </div>
+
+    <!-- RIÑÓN DERECHO -->
+    <div class="seccion">
+      <div class="linea">
+        <span class="item">Riñón Derecho: Tamaño: <span id="Rinon_Derecho_Tamano_L"></span></span>
+        <span class="item">T: <span id="T_RD"></span></span>
+        <span class="item">P: <span id="P_RD"></span></span>
+        <span class="item">Posición Normal: <span id="Posicion_Normal_RD"></span></span>
+        <span class="item">Ptosis: <span id="Ptosis_RD"></span></span>
+      </div>
+      <div class="linea">
+        <span class="item">Litiasis: <span id="Litiasis_RD"></span></span>
+        <span class="item">Loe: <span id="Loe_RD"></span></span>
+        <span class="item">Quistes: <span id="Quistes_RD"></span></span>
+        <span class="item">Relación Cortico Medular: <span id="Relacion_Cortico_Medular_RD"></span></span>
+        <span class="item">Sistema Pielocalicial Dilatación: <span id="Sistema_Pielocalicial_Dilatacion_RD"></span></span>
+      </div>
+      <div class="alteraciones">Describir alteraciones: <span id="Describir_alteraciones_RD"></span></div>
+    </div>
+
+    <!-- RIÑÓN IZQUIERDO -->
+    <div class="seccion">
+      <div class="linea">
+        <span class="item">Riñón Izquierdo Tamaño: <span id="Rinon_Izquierdo_Tamano_L"></span></span>
+        <span class="item">T: <span id="T_RI"></span></span>
+        <span class="item">P: <span id="P_RI"></span></span>
+        <span class="item">Posición Normal: <span id="Posicion_Normal_RI"></span></span>
+        <span class="item">Ptosis: <span id="Ptosis_RI"></span></span>
+      </div>
+      <div class="linea">
+        <span class="item">Litiasis: <span id="Litiasis_RI"></span></span>
+        <span class="item">Loe: <span id="Loe_RI"></span></span>
+        <span class="item">Quistes: <span id="Quistes_RI"></span></span>
+        <span class="item">Relación Cortico Medular: <span id="Relacion_Cortico_Medular_RI"></span></span>
+        <span class="item">Sistema Pielocalicial Dilatación: <span id="Sistema_Pielocalicial_Dilatacion_RI"></span></span>
+      </div>
+      <div class="alteraciones">Describir alteraciones: <span id="Describir_alteraciones_RI"></span></div>
+    </div>
+
+    <!-- GLÁNDULAS SUPRARRENALES -->
+    <div class="seccion">
+      <div class="linea">
+        <span class="item">Glándulas Suprarrenales Visibles: <span id="Glandulas_Suprarrenales_Visibles"></span></span>
+        <span class="item">Describir: <span id="Describir_SP"></span></span>
+      </div>
+    </div>
+
+    <!-- VEJIGA -->
+    <div class="seccion">
+      <div class="linea">
+        <span class="item">Vejiga Diametro: <span id="Vejiga_Diametro_L"></span></span>
+        <span class="item">T: <span id="T_V"></span></span>
+        <span class="item">P: <span id="P_V"></span></span>
+        <span class="item">Volumen Residual (postmicción): <span id="Volumen_Residual"></span></span>
+      </div>
+      <div class="linea">
+        <span class="item">Pared Vesical: Grosor de la pared: <span id="Pared_Vesical_Grosor"></span></span>
+        <span class="item">Edematosa: <span id="Edematosa"></span></span>
+        <span class="item">Litiasis: <span id="Litiasis_V"></span></span>
+        <span class="item">Ureterocele: <span id="Ureterocele"></span></span>
+        <span class="item">Loe u: <span id="Loe_u"></span></span>
+      </div>
+      <div class="alteraciones">Describir alteraciones: <span id="Describir_alteraciones_V"></span></div>
+    </div>
+
+    <!-- DIAGNÓSTICO Y RECOMENDACIONES -->
+    <div class="bloque-final">
+      <div class="linea">Diagnóstico: <span id="Diagnostico"></span></div>
+      <div class="linea">Recomendaciones: <span id="Recomendaciones"></span></div>
+    </div>
+  </div>
+
+  <!-- PIE DE PÁGINA INAMOVIBLE -->
+  <div class="pie-pagina">
+    <div class="firma-area">
+      <div class="linea-firma"></div>
+      <div class="dr-firma-texto">Dr. Julio A. Linares Vargas</div>
+      <div class="dr-firma-texto" style="font-weight: normal; font-size: 9.5pt;">Ecografista</div>
+      <div class="cedula-firma">C.I. V-12.638.442<br>MPPS/CMEM: 123334</div>
+    </div>
+    <div class="info-contacto-pie">
+      Zona Colonial - Petare &nbsp;|&nbsp; Teléfono: 04166110065
+    </div>
+  </div>
+</div>
+
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const cleanSearch = window.location.search.replace(/^\?+/, '');
+    const params = new URLSearchParams(cleanSearch);
+
+    params.forEach((value, key) => {
+      const decodedValue = decodeURIComponent(value.replace(/\+/g, ' '));
+
+      const cleanKey = key.trim().toLowerCase()
+        .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+        .replace(/[._\s]+/g, '');
+
+      const allElements = document.querySelectorAll('[id]');
+      for (let elem of allElements) {
+        const elemIdClean = elem.id.trim().toLowerCase()
+          .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+          .replace(/[._\s]+/g, '');
+
+        if (elemIdClean === cleanKey) {
+          elem.textContent = decodedValue;
+          break;
+        }
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
