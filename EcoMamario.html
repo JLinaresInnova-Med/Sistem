@@ -9,7 +9,7 @@
 <style>
   @page {
     size: letter portrait;
-    margin: 0.45cm 0.65cm;
+    margin: 0.4cm 0.6cm;
   }
 
   * {
@@ -20,8 +20,8 @@
 
   body {
     font-family: 'Montserrat', Arial, sans-serif;
-    font-size: 7.7pt;
-    line-height: 1.15;
+    font-size: 10.5pt;
+    line-height: 1.08;
     color: #111;
     background: #f4f4f4;
     font-weight: normal;
@@ -32,7 +32,7 @@
     height: 27.94cm;
     margin: 10px auto;
     background: #fff;
-    padding: 0.45cm 0.65cm;
+    padding: 0.4cm 0.6cm;
     box-shadow: 0 0 8px rgba(0,0,0,0.12);
     position: relative;
     display: flex;
@@ -49,7 +49,7 @@
       width: 100%;
       height: 100vh;
       margin: 0;
-      padding: 0.45cm 0.65cm;
+      padding: 0.4cm 0.6cm;
       box-shadow: none;
     }
     .no-print {
@@ -84,14 +84,14 @@
     display: flex;
     align-items: center;
     border-bottom: 1.5px solid #2c3e50;
-    padding-bottom: 4px;
-    margin-bottom: 5px;
+    padding-bottom: 3px;
+    margin-bottom: 4px;
   }
   .membrete img {
-    height: 44px;
+    height: 40px;
     width: auto;
     object-fit: contain;
-    margin-right: 12px;
+    margin-right: 10px;
   }
   .membrete-info {
     display: flex;
@@ -99,13 +99,13 @@
   }
   .nombre-centro {
     font-family: 'Amsterdam Four', 'Great Vibes', cursive;
-    font-size: 19pt;
+    font-size: 18pt;
     color: #1a365d;
     line-height: 1;
     margin-bottom: 2px;
   }
   .servicios-centro {
-    font-size: 7.3pt;
+    font-size: 7.2pt;
     font-weight: 600;
     color: #444;
     letter-spacing: 0.2px;
@@ -114,25 +114,25 @@
   /* Título del informe (Única negrita junto con datos del paciente) */
   .titulo-informe {
     text-align: center;
-    font-size: 10pt;
+    font-size: 10.5pt;
     font-weight: bold;
-    margin: 2px 0 5px 0;
+    margin: 2px 0 4px 0;
     text-transform: uppercase;
     letter-spacing: 0.4px;
     color: #222;
   }
 
-  /* Cuadro de datos del paciente */
-  .datos-paciente-box {
+  /* Datos del paciente sin márgenes ni bordes */
+  .datos-paciente {
     width: 100%;
     border-collapse: collapse;
-    margin-bottom: 5px;
-    font-size: 7.8pt;
+    margin-bottom: 3px;
+    font-size: 10.5pt;
   }
-  .datos-paciente-box td {
-    border: 0.7px solid #333;
-    padding: 2px 5px;
-    vertical-align: middle;
+  .datos-paciente td {
+    border: none;
+    padding: 1px 4px 1px 0;
+    vertical-align: top;
   }
   .label-paciente {
     font-weight: bold;
@@ -140,61 +140,63 @@
 
   /* Secciones clínicas - SIN NEGRITAS */
   .bloque-clinico {
-    margin-bottom: 4px;
+    margin-bottom: 2px;
+    font-size: 10.5pt;
   }
   .fila-clinica {
     display: flex;
     flex-wrap: wrap;
     align-items: baseline;
-    margin-bottom: 1.5px;
+    margin-bottom: 1px;
   }
   .campo-item {
-    margin-right: 8px;
+    margin-right: 6px;
     white-space: nowrap;
   }
   .campo-senalar {
-    margin-right: 8px;
+    margin-right: 6px;
     flex: 1;
-    min-width: 90px;
+    min-width: 65px;
   }
   .linea-relleno {
     display: inline-block;
-    min-width: 42px;
-    border-bottom: 0.6px solid #555;
+    min-width: 28px;
+    border-bottom: 0.6px solid #666;
     padding: 0 2px;
   }
   .encabezado-mama {
-    margin-top: 3px;
-    margin-bottom: 1.5px;
+    margin-top: 2px;
+    margin-bottom: 1px;
   }
   .subrayado-titulo {
     border-bottom: 0.8px solid #222;
     padding-bottom: 0.5px;
-    margin-right: 6px;
+    margin-right: 5px;
   }
 
   .intro-texto {
-    margin: 3px 0 4px 0;
+    margin: 2px 0 3px 0;
     text-align: justify;
-    font-size: 7.7pt;
+    font-size: 10.5pt;
   }
 
   .bloque-cierre {
-    margin-top: 3px;
+    margin-top: 2px;
+    font-size: 10.5pt;
   }
   .linea-cierre {
-    margin-bottom: 3px;
+    margin-bottom: 2px;
     border-bottom: 0.6px solid #444;
-    padding-bottom: 1.5px;
+    padding-bottom: 1px;
   }
 
   /* Pie de página inamovible */
   .pie-pagina {
     border-top: 1px solid #ddd;
-    padding-top: 4px;
+    padding-top: 3px;
     margin-top: auto;
     text-align: center;
-    font-size: 9pt;
+    font-size: 10pt;
   }
   .firma-area {
     width: 250px;
@@ -202,24 +204,24 @@
   }
   .linea-firma {
     border-top: 1px solid #222;
-    padding-top: 2px;
-    margin-bottom: 2px;
+    padding-top: 1px;
+    margin-bottom: 1px;
   }
   .dr-firma-texto {
     font-weight: 600;
-    line-height: 1.12;
-    font-size: 9pt;
+    line-height: 1.08;
+    font-size: 10pt;
   }
   .cedula-firma {
-    font-size: 8.5pt;
+    font-size: 9.5pt;
     color: #333;
-    line-height: 1.12;
-    margin-bottom: 6px;
+    line-height: 1.08;
+    margin-bottom: 4px;
   }
   .info-contacto-pie {
-    font-size: 7.6pt;
+    font-size: 7.8pt;
     color: #555;
-    line-height: 1.12;
+    line-height: 1.08;
   }
 </style>
 </head>
@@ -243,8 +245,8 @@
     <!-- TÍTULO EN NEGRITA -->
     <div class="titulo-informe">Informe Ecosonográfico Mamario</div>
 
-    <!-- DATOS DEL PACIENTE (ETIQUETAS EN NEGRITA) -->
-    <table class="datos-paciente-box">
+    <!-- DATOS DEL PACIENTE SIN MÁRGENES NI BORDES (ETIQUETAS EN NEGRITA) -->
+    <table class="datos-paciente">
       <tr>
         <td style="width: 72%;"><span class="label-paciente">Nombre:</span> <span id="Nombre"></span></td>
         <td style="width: 28%;"><span class="label-paciente">Fecha:</span> <span id="Fecha"></span></td>
@@ -379,7 +381,7 @@
     <div class="firma-area">
       <div class="linea-firma"></div>
       <div class="dr-firma-texto">Dr. Julio A. Linares Vargas</div>
-      <div class="dr-firma-texto" style="font-weight: normal; font-size: 8.5pt;">Ecografista</div>
+      <div class="dr-firma-texto" style="font-weight: normal; font-size: 9.5pt;">Ecografista</div>
       <div class="cedula-firma">C.I. V-12.638.442<br>MPPS/CMEM: 123334</div>
     </div>
     <div class="info-contacto-pie">
