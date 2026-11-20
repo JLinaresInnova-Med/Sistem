@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Informe Ecosonográfico Mamario</title>
+<!-- Importamos la tipografía Amsterdam 4 y Montserrat -->
+<link href="https://fonts.googleapis.com/css2?family=Amsterdam+Four&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+  @page {
+    size: letter portrait;
+    margin: 0.55cm 0.75cm;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 8.7pt;
+    line-height: 1.18;
+    color: #111;
+    background: #f4f4f4;
+    font-weight: normal;
+  }
+
+  .hoja {
+    width: 21.59cm;
+    height: 27.94cm;
+    margin: 10px auto;
+    background: #fff;
+    padding: 0.55cm 0.75cm;
+    box-shadow: 0 0 8px rgba(0,0,0,0.12);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+  }
+
+  @media print {
+    body {
+      background: #fff;
+    }
+    .hoja {
+      width: 100%;
+      height: 100vh;
+      margin: 0;
+      padding: 0.55cm 0.75cm;
+      box-shadow: none;
+    }
+    .no-print {
+      display: none !important;
+    }
+  }
+
+  /* Botón solo visible en pantalla */
+  .no-print {
+    text-align: right;
+    width: 21.59cm;
+    margin: 8px auto 0;
+  }
+  .btn-print {
+    background: #1a5276;
+    color: #fff;
+    border: none;
+    padding: 6px 14px;
+    font-size: 9pt;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  /* Contenido principal superior */
+  .contenido-principal {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  /* Membrete con fuente Amsterdam 4 y servicios */
+  .membrete {
+    display: flex;
+    align-items: center;
+    border-bottom: 1.5px solid #2c3e50;
+    padding-bottom: 5px;
+    margin-bottom: 7px;
+  }
+  .membrete img {
+    height: 48px;
+    width: auto;
+    object-fit: contain;
+    margin-right: 12px;
+  }
+  .membrete-info {
+    display: flex;
+    flex-direction: column;
+  }
+  .nombre-centro {
+    font-family: 'Amsterdam Four', 'Great Vibes', cursive;
+    font-size: 20pt;
+    color: #1a365d;
+    line-height: 1;
+    margin-bottom: 2px;
+  }
+  .servicios-centro {
+    font-size: 7.6pt;
+    font-weight: 600;
+    color: #444;
+    letter-spacing: 0.2px;
+  }
+
+  /* Título del informe (Única negrita junto con datos del paciente) */
+  .titulo-informe {
+    text-align: center;
+    font-size: 10.5pt;
+    font-weight: bold;
+    margin: 4px 0 7px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #222;
+  }
+
+  /* Datos del paciente */
+  .datos-paciente {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 6px;
+    font-size: 9pt;
+  }
+  .datos-paciente td {
+    padding: 1.5px 4px 1.5px 0;
+    vertical-align: top;
+  }
+  .label-paciente {
+    font-weight: bold;
+  }
+
+  /* Texto introductorio despejado */
+  .intro {
+    margin-top: 6px;
+    margin-bottom: 7px;
+    text-align: justify;
+    font-size: 8.8pt;
+  }
+
+  /* Secciones clínicas - SIN NEGRITAS */
+  .seccion {
+    margin-bottom: 5.5px;
+    padding-bottom: 4px;
+    border-bottom: 0.5px solid #eaeaea;
+  }
+  .linea {
+    margin-bottom: 1.5px;
+  }
+  .item {
+    display: inline-block;
+    margin-right: 9px;
+  }
+  .alteraciones {
+    margin-top: 1.5px;
+  }
+
+  .bloque-final {
+    margin-top: 6px;
+    margin-bottom: 4px;
+  }
+  .bloque-final .linea {
+    margin-bottom: 3px;
+  }
+
+  /* Pie de página inamovible perfectamente equilibrado */
+  .pie-pagina {
+    border-top: 1px solid #ddd;
+    padding-top: 5px;
+    margin-top: auto;
+    text-align: center;
+    font-size: 9.5pt;
+  }
+  .firma-area {
+    width: 260px;
+    margin: 0 auto;
+  }
+  .linea-firma {
+    border-top: 1px solid #222;
+    padding-top: 2px;
+    margin-bottom: 2px;
+  }
+  .dr-firma-texto {
+    font-weight: 600;
+    line-height: 1.15;
+    font-size: 9.5pt;
+  }
+  .cedula-firma {
+    font-size: 9pt;
+    color: #333;
+    line-height: 1.15;
+    margin-bottom: 8px;
+  }
+  .info-contacto-pie {
+    font-size: 8pt;
+    color: #555;
+    line-height: 1.15;
+  }
+</style>
+</head>
+<body>
+
+<div class="no-print">
+  <button class="btn-print" onclick="window.print()">Imprimir / Guardar PDF</button>
+</div>
+
+<div class="hoja">
+  <div class="contenido-principal">
+    <!-- MEMBRETE CON AMSTERDAM 4 Y SERVICIOS -->
+    <div class="membrete">
+      <img src="https://lh3.googleusercontent.com/d/1i_Cf2OP79eZtsSA82ebbHX009ycBkAfk" alt="Logo Centro Médico Ariyuri">
+      <div class="membrete-info">
+        <div class="nombre-centro">Centro Medico Ariyuri C.A.</div>
+        <div class="servicios-centro">Ginecología y Obstetricia, Ecosonografía, Cirugías, Citologías, Biopsias, control ITS</div>
+      </div>
+    </div>
+
+    <!-- TÍTULO EN NEGRITA -->
+    <div class="titulo-informe">Informe Ecosonográfico Mamario</div>
+
+    <!-- DATOS DEL PACIENTE (ETIQUETAS EN NEGRITA) -->
+    <table class="datos-paciente">
+      <tr>
+        <td style="width: 48%;"><span class="label-paciente">Nombre y Apellido:</span> <span id="Nombre"></span></td>
+        <td style="width: 26%;"><span class="label-paciente">Cédula:</span> <span id="Cedula"></span></td>
+        <td style="width: 26%;"><span class="label-paciente">Fecha:</span> <span id="Fecha"></span></td>
+      </tr>
+      <tr>
+        <td><span class="label-paciente">Motivo de Consulta:</span> <span id="Motivo_de_Consulta"></span></td>
+        <td><span class="label-paciente">Sexo:</span> <span id="Sexo"></span></td>
+        <td><span class="label-paciente">Edad:</span> <span id="Edad"></span></td>
+      </tr>
+    </table>
+
+    <!-- ANTECEDENTES -->
+    <div class="seccion">
+      <div class="linea">
+        <span class="item">Antecedentes: Enfermedad previa de las Mamas: <span id="Enfermedad_previa_de_las_Mamas"></span></span>
+        <span class="item">Señalar: <span id="Enfermedad_previa_de_las_Mamas_Senalar"></span></span>
+        <span class="item">Mastectomía Previa: <span id="Mastectomia_Previa"></span></span>
+        <span class="item">Señalar: <span id="Mastectomia_Previa_Senalar"></span></span>
+      </div>
+      <div class="linea">
+        <span class="item">Biopsia: <span id="Biopsia"></span></span>
+        <span class="item">Señalar: <span id="Biopsia_Senalar"></span></span>
+        <span class="item">Tumor maligno personal: <span id="Tumor_maligno_personal"></span></span>
+        <span class="item">Señalar: <span id="Tumor_maligno_personal_Senalar"></span></span>
+      </div>
+      <div class="linea">
+        <span class="item">Tumor maligno Familiar: <span id="Tumor_maligno_Familiar"></span></span>
+        <span class="item">Señalar: <span id="Tumor_maligno_Familiar_Senalar"></span></span>
+        <span class="item">Anticoncep. Hormonales: <span id="Anticoncep_Hormonales"></span></span>
+        <span class="item">Señalar: <span id="Anticoncep_Hormonales_Senalar"></span></span>
+        <span class="item">Lactancia: <span id="Lactancia"></span></span>
+        <span class="item">Señalar: <span id="Lactancia_Senalar"></span></span>
+      </div>
+    </div>
+
+    <!-- INTRODUCCIÓN -->
+    <div class="intro">
+      Se realiza Ecosonograma de Mamas, utilizando transductor Lineal 7,5 Mhz, realizando cortes transversales, oblicuos y longitudinales, observándose:
+    </div>
+
+    <!-- MAMA DERECHA -->
+    <div class="seccion">
+      <div class="linea">
+        <span class="item">Mama Derecha: Predominio de tejido Fibroglandular: <span id="MD_Fibroglandular"></span></span>
+        <span class="item">Predominio de tejido Adiposo: <span id="MD_Adiposo"></span></span>
+        <span class="item">Cond. Galact. Dilatados: <span id="MD_Cond_Galact"></span></span>
+      </div>
+      <div class="linea">
+        <span class="item">LOE: <span id="MD_LOE"></span></span>
+        <span class="item">Calcificación: <span id="MD_Calcificacion"></span></span>
+        <span class="item">Quiste: <span id="MD_Quiste"></span></span>
+        <span class="item">Presencia de Prótesis: <span id="MD_Protesis"></span></span>
+        <span class="item">Prótesis Alteración: <span id="MD_Protesis_Alt"></span></span>
+        <span class="item">Señalar: <span id="MD_Protesis_Alt_Senalar"></span></span>
+      </div>
+      <div class="linea">
+        <span class="item">Ruptura Intracapsular: <span id="MD_Ruptura_Intra"></span></span>
+        <span class="item">Ruptura Extracap.: <span id="MD_Ruptura_Extra"></span></span>
+        <span class="item">Signo de Contractura Capsular: <span id="MD_Contractura"></span></span>
+        <span class="item">Trasudado de Silicon: <span id="MD_Trasudado"></span></span>
+        <span class="item">Señalar: <span id="MD_Trasudado_Senalar"></span></span>
+      </div>
+      <div class="linea">
+        <span class="item">Herniación de la Prótesis: <span id="MD_Herniacion"></span></span>
+        <span class="item">Adenopatía Axilar: <span id="MD_Adenopatia"></span></span>
+        <span class="item">Adenopatía Axilar Patológica: <span id="MD_Adenopatia_Pat"></span></span>
+        <span class="item">Señalar: <span id="MD_Adenopatia_Pat_Senalar"></span></span>
+      </div>
+      <div class="alteraciones">Observación: <span id="MD_Observacion"></span></div>
+    </div>
+
+    <!-- MAMA IZQUIERDA -->
+    <div class="seccion">
+      <div class="linea">
+        <span class="item">Mama Izquierda: Predominio de tejido Fibroglandular: <span id="MI_Fibroglandular"></span></span>
+        <span class="item">Predominio de tejido Adiposo: <span id="MI_Adiposo"></span></span>
+        <span class="item">Cond. Galact. Dilatados: <span id="MI_Cond_Galact"></span></span>
+      </div>
+      <div class="linea">
+        <span class="item">LOE: <span id="MI_LOE"></span></span>
+        <span class="item">Calcificación: <span id="MI_Calcificacion"></span></span>
+        <span class="item">Quiste: <span id="MI_Quiste"></span></span>
+        <span class="item">Presencia de Prótesis: <span id="MI_Protesis"></span></span>
+        <span class="item">Prótesis Alteración: <span id="MI_Protesis_Alt"></span></span>
+        <span class="item">Señalar: <span id="MI_Protesis_Alt_Senalar"></span></span>
+      </div>
+      <div class="linea">
+        <span class="item">Ruptura Intracapsular: <span id="MI_Ruptura_Intra"></span></span>
+        <span class="item">Ruptura Extracap.: <span id="MI_Ruptura_Extra"></span></span>
+        <span class="item">Signo de Contractura Capsular: <span id="MI_Contractura"></span></span>
+        <span class="item">Trasudado de Silicon: <span id="MI_Trasudado"></span></span>
+        <span class="item">Señalar: <span id="MI_Trasudado_Senalar"></span></span>
+      </div>
+      <div class="linea">
+        <span class="item">Herniación de la Prótesis: <span id="MI_Herniacion"></span></span>
+        <span class="item">Adenopatía Axilar: <span id="MI_Adenopatia"></span></span>
+        <span class="item">Adenopatía Axilar Patológica: <span id="MI_Adenopatia_Pat"></span></span>
+        <span class="item">Señalar: <span id="MI_Adenopatia_Pat_Senalar"></span></span>
+      </div>
+      <div class="alteraciones">Observación: <span id="MI_Observacion"></span></div>
+    </div>
+
+    <!-- CONCLUSIONES Y RECOMENDACIONES -->
+    <div class="bloque-final">
+      <div class="linea">Conclusiones: <span id="Conclusiones"></span></div>
+      <div class="linea">Recomendaciones: <span id="Recomendaciones"></span></div>
+    </div>
+  </div>
+
+  <!-- PIE DE PÁGINA INAMOVIBLE -->
+  <div class="pie-pagina">
+    <div class="firma-area">
+      <div class="linea-firma"></div>
+      <div class="dr-firma-texto">Dr. Julio A. Linares Vargas</div>
+      <div class="dr-firma-texto" style="font-weight: normal; font-size: 9pt;">Ecografista</div>
+      <div class="cedula-firma">C.I. V-12.638.442<br>MPPS/CMEM: 123334</div>
+    </div>
+    <div class="info-contacto-pie">
+      Zona Colonial - Petare &nbsp;|&nbsp; Teléfono: 04166110065
+    </div>
+  </div>
+</div>
+
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const cleanSearch = window.location.search.replace(/^\?+/, '');
+    const params = new URLSearchParams(clean
