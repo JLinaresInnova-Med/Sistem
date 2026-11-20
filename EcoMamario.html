@@ -4,13 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Informe Ecosonográfico Mamario</title>
-<!-- Importamos la tipografía Amsterdam 4 y Montserrat -->
 <link href="https://fonts.googleapis.com/css2?family=Amsterdam+Four&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
 <style>
   @page {
     size: letter portrait;
-    margin: 0.55cm 0.75cm;
+    margin: 0.45cm 0.65cm;
   }
 
   * {
@@ -21,8 +20,8 @@
 
   body {
     font-family: 'Montserrat', Arial, sans-serif;
-    font-size: 8.7pt;
-    line-height: 1.18;
+    font-size: 7.7pt;
+    line-height: 1.15;
     color: #111;
     background: #f4f4f4;
     font-weight: normal;
@@ -33,7 +32,7 @@
     height: 27.94cm;
     margin: 10px auto;
     background: #fff;
-    padding: 0.55cm 0.75cm;
+    padding: 0.45cm 0.65cm;
     box-shadow: 0 0 8px rgba(0,0,0,0.12);
     position: relative;
     display: flex;
@@ -50,7 +49,7 @@
       width: 100%;
       height: 100vh;
       margin: 0;
-      padding: 0.55cm 0.75cm;
+      padding: 0.45cm 0.65cm;
       box-shadow: none;
     }
     .no-print {
@@ -58,7 +57,6 @@
     }
   }
 
-  /* Botón solo visible en pantalla */
   .no-print {
     text-align: right;
     width: 21.59cm;
@@ -74,7 +72,6 @@
     cursor: pointer;
   }
 
-  /* Contenido principal superior */
   .contenido-principal {
     flex: 1;
     display: flex;
@@ -87,11 +84,11 @@
     display: flex;
     align-items: center;
     border-bottom: 1.5px solid #2c3e50;
-    padding-bottom: 5px;
-    margin-bottom: 7px;
+    padding-bottom: 4px;
+    margin-bottom: 5px;
   }
   .membrete img {
-    height: 48px;
+    height: 44px;
     width: auto;
     object-fit: contain;
     margin-right: 12px;
@@ -102,13 +99,13 @@
   }
   .nombre-centro {
     font-family: 'Amsterdam Four', 'Great Vibes', cursive;
-    font-size: 20pt;
+    font-size: 19pt;
     color: #1a365d;
     line-height: 1;
     margin-bottom: 2px;
   }
   .servicios-centro {
-    font-size: 7.6pt;
+    font-size: 7.3pt;
     font-weight: 600;
     color: #444;
     letter-spacing: 0.2px;
@@ -117,72 +114,90 @@
   /* Título del informe (Única negrita junto con datos del paciente) */
   .titulo-informe {
     text-align: center;
-    font-size: 10.5pt;
+    font-size: 10pt;
     font-weight: bold;
-    margin: 4px 0 7px 0;
+    margin: 2px 0 5px 0;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.4px;
     color: #222;
   }
 
-  /* Datos del paciente */
-  .datos-paciente {
+  /* Cuadro de datos del paciente */
+  .datos-paciente-box {
     width: 100%;
     border-collapse: collapse;
-    margin-bottom: 6px;
-    font-size: 9pt;
+    margin-bottom: 5px;
+    font-size: 7.8pt;
   }
-  .datos-paciente td {
-    padding: 1.5px 4px 1.5px 0;
-    vertical-align: top;
+  .datos-paciente-box td {
+    border: 0.7px solid #333;
+    padding: 2px 5px;
+    vertical-align: middle;
   }
   .label-paciente {
     font-weight: bold;
   }
 
-  /* Texto introductorio despejado */
-  .intro {
-    margin-top: 6px;
-    margin-bottom: 7px;
-    text-align: justify;
-    font-size: 8.8pt;
-  }
-
   /* Secciones clínicas - SIN NEGRITAS */
-  .seccion {
-    margin-bottom: 5.5px;
-    padding-bottom: 4px;
-    border-bottom: 0.5px solid #eaeaea;
-  }
-  .linea {
-    margin-bottom: 1.5px;
-  }
-  .item {
-    display: inline-block;
-    margin-right: 9px;
-  }
-  .alteraciones {
-    margin-top: 1.5px;
-  }
-
-  .bloque-final {
-    margin-top: 6px;
+  .bloque-clinico {
     margin-bottom: 4px;
   }
-  .bloque-final .linea {
-    margin-bottom: 3px;
+  .fila-clinica {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    margin-bottom: 1.5px;
+  }
+  .campo-item {
+    margin-right: 8px;
+    white-space: nowrap;
+  }
+  .campo-senalar {
+    margin-right: 8px;
+    flex: 1;
+    min-width: 90px;
+  }
+  .linea-relleno {
+    display: inline-block;
+    min-width: 42px;
+    border-bottom: 0.6px solid #555;
+    padding: 0 2px;
+  }
+  .encabezado-mama {
+    margin-top: 3px;
+    margin-bottom: 1.5px;
+  }
+  .subrayado-titulo {
+    border-bottom: 0.8px solid #222;
+    padding-bottom: 0.5px;
+    margin-right: 6px;
   }
 
-  /* Pie de página inamovible perfectamente equilibrado */
+  .intro-texto {
+    margin: 3px 0 4px 0;
+    text-align: justify;
+    font-size: 7.7pt;
+  }
+
+  .bloque-cierre {
+    margin-top: 3px;
+  }
+  .linea-cierre {
+    margin-bottom: 3px;
+    border-bottom: 0.6px solid #444;
+    padding-bottom: 1.5px;
+  }
+
+  /* Pie de página inamovible */
   .pie-pagina {
     border-top: 1px solid #ddd;
-    padding-top: 5px;
+    padding-top: 4px;
     margin-top: auto;
     text-align: center;
-    font-size: 9.5pt;
+    font-size: 9pt;
   }
   .firma-area {
-    width: 260px;
+    width: 250px;
     margin: 0 auto;
   }
   .linea-firma {
@@ -192,19 +207,19 @@
   }
   .dr-firma-texto {
     font-weight: 600;
-    line-height: 1.15;
-    font-size: 9.5pt;
+    line-height: 1.12;
+    font-size: 9pt;
   }
   .cedula-firma {
-    font-size: 9pt;
+    font-size: 8.5pt;
     color: #333;
-    line-height: 1.15;
-    margin-bottom: 8px;
+    line-height: 1.12;
+    margin-bottom: 6px;
   }
   .info-contacto-pie {
-    font-size: 8pt;
+    font-size: 7.6pt;
     color: #555;
-    line-height: 1.15;
+    line-height: 1.12;
   }
 </style>
 </head>
@@ -229,114 +244,133 @@
     <div class="titulo-informe">Informe Ecosonográfico Mamario</div>
 
     <!-- DATOS DEL PACIENTE (ETIQUETAS EN NEGRITA) -->
-    <table class="datos-paciente">
+    <table class="datos-paciente-box">
       <tr>
-        <td style="width: 48%;"><span class="label-paciente">Nombre y Apellido:</span> <span id="Nombre"></span></td>
-        <td style="width: 26%;"><span class="label-paciente">Cédula:</span> <span id="Cedula"></span></td>
-        <td style="width: 26%;"><span class="label-paciente">Fecha:</span> <span id="Fecha"></span></td>
+        <td style="width: 72%;"><span class="label-paciente">Nombre:</span> <span id="Nombre"></span></td>
+        <td style="width: 28%;"><span class="label-paciente">Fecha:</span> <span id="Fecha"></span></td>
       </tr>
       <tr>
         <td><span class="label-paciente">Motivo de Consulta:</span> <span id="Motivo_de_Consulta"></span></td>
-        <td><span class="label-paciente">Sexo:</span> <span id="Sexo"></span></td>
-        <td><span class="label-paciente">Edad:</span> <span id="Edad"></span></td>
+        <td>
+          <span class="label-paciente">Edad:</span> <span id="Edad"></span> &nbsp;
+          <span class="label-paciente">Sexo:</span> <span id="Sexo"></span> &nbsp;
+          <span class="label-paciente">Cédula:</span> <span id="Cedula"></span>
+        </td>
       </tr>
     </table>
 
     <!-- ANTECEDENTES -->
-    <div class="seccion">
-      <div class="linea">
-        <span class="item">Antecedentes: Enfermedad previa de las Mamas: <span id="Enfermedad_previa_de_las_Mamas"></span></span>
-        <span class="item">Señalar: <span id="Enfermedad_previa_de_las_Mamas_Senalar"></span></span>
-        <span class="item">Mastectomía Previa: <span id="Mastectomia_Previa"></span></span>
-        <span class="item">Señalar: <span id="Mastectomia_Previa_Senalar"></span></span>
+    <div class="bloque-clinico">
+      <div class="fila-clinica">
+        <span class="campo-item">Antecedentes:</span>
+        <span class="campo-item">Enfermedad previa de las Mamas: <span data-sino="Enfermedad_previa_de_las_Mamas"></span></span>
+        <span class="campo-senalar">Señalar: <span class="linea-relleno" id="Enfermedad_previa_de_las_Mamas_Senalar"></span></span>
       </div>
-      <div class="linea">
-        <span class="item">Biopsia: <span id="Biopsia"></span></span>
-        <span class="item">Señalar: <span id="Biopsia_Senalar"></span></span>
-        <span class="item">Tumor maligno personal: <span id="Tumor_maligno_personal"></span></span>
-        <span class="item">Señalar: <span id="Tumor_maligno_personal_Senalar"></span></span>
+      <div class="fila-clinica">
+        <span class="campo-item">Mastectomía Previa: <span data-sino="Mastectomia_Previa"></span></span>
+        <span class="campo-senalar">Señalar: <span class="linea-relleno" id="Mastectomia_Previa_Senalar"></span></span>
+        <span class="campo-item">Biopsia: <span data-sino="Biopsia"></span></span>
+        <span class="campo-senalar">Señalar: <span class="linea-relleno" id="Biopsia_Senalar"></span></span>
       </div>
-      <div class="linea">
-        <span class="item">Tumor maligno Familiar: <span id="Tumor_maligno_Familiar"></span></span>
-        <span class="item">Señalar: <span id="Tumor_maligno_Familiar_Senalar"></span></span>
-        <span class="item">Anticoncep. Hormonales: <span id="Anticoncep_Hormonales"></span></span>
-        <span class="item">Señalar: <span id="Anticoncep_Hormonales_Senalar"></span></span>
-        <span class="item">Lactancia: <span id="Lactancia"></span></span>
-        <span class="item">Señalar: <span id="Lactancia_Senalar"></span></span>
+      <div class="fila-clinica">
+        <span class="campo-item">Tumor maligno personal: <span data-sino="Tumor_maligno_personal"></span></span>
+        <span class="campo-senalar">Señalar: <span class="linea-relleno" id="Tumor_maligno_personal_Senalar"></span></span>
+        <span class="campo-item">Familiar: <span data-sino="Tumor_maligno_Familiar"></span></span>
+        <span class="campo-senalar">Señalar: <span class="linea-relleno" id="Tumor_maligno_Familiar_Senalar"></span></span>
+      </div>
+      <div class="fila-clinica">
+        <span class="campo-item">Anticoncep. Hormonales: <span data-sino="Anticoncep_Hormonales"></span></span>
+        <span class="campo-senalar">Señalar: <span class="linea-relleno" id="Anticoncep_Hormonales_Senalar"></span></span>
+        <span class="campo-item">Lactancia: <span data-sino="Lactancia"></span></span>
+        <span class="campo-senalar">Señalar: <span class="linea-relleno" id="Lactancia_Senalar"></span></span>
       </div>
     </div>
 
     <!-- INTRODUCCIÓN -->
-    <div class="intro">
+    <div class="intro-texto">
       Se realiza Ecosonograma de Mamas, utilizando transductor Lineal 7,5 Mhz, realizando cortes transversales, oblicuos y longitudinales, observándose:
     </div>
 
     <!-- MAMA DERECHA -->
-    <div class="seccion">
-      <div class="linea">
-        <span class="item">Mama Derecha: Predominio de tejido Fibroglandular: <span id="MD_Fibroglandular"></span></span>
-        <span class="item">Predominio de tejido Adiposo: <span id="MD_Adiposo"></span></span>
-        <span class="item">Cond. Galact. Dilatados: <span id="MD_Cond_Galact"></span></span>
+    <div class="bloque-clinico">
+      <div class="encabezado-mama">
+        <span class="subrayado-titulo">Mama Derecha:</span>
+        <span class="campo-item">Predominio de tejido Fibroglandular: <span data-sino="MD_Fibroglandular"></span></span>
+        <span class="campo-item">Predominio de tejido Adiposo: <span data-sino="MD_Adiposo"></span></span>
       </div>
-      <div class="linea">
-        <span class="item">LOE: <span id="MD_LOE"></span></span>
-        <span class="item">Calcificación: <span id="MD_Calcificacion"></span></span>
-        <span class="item">Quiste: <span id="MD_Quiste"></span></span>
-        <span class="item">Presencia de Prótesis: <span id="MD_Protesis"></span></span>
-        <span class="item">Prótesis Alteración: <span id="MD_Protesis_Alt"></span></span>
-        <span class="item">Señalar: <span id="MD_Protesis_Alt_Senalar"></span></span>
+      <div class="fila-clinica">
+        <span class="campo-item">Cond. Galact. Dilatados: <span data-sino="MD_Cond_Galact"></span></span>
+        <span class="campo-item">LOE: <span data-sino="MD_LOE"></span></span>
+        <span class="campo-item">Calcificación: <span data-sino="MD_Calcificacion"></span></span>
+        <span class="campo-item">Quiste: <span data-sino="MD_Quiste"></span></span>
       </div>
-      <div class="linea">
-        <span class="item">Ruptura Intracapsular: <span id="MD_Ruptura_Intra"></span></span>
-        <span class="item">Ruptura Extracap.: <span id="MD_Ruptura_Extra"></span></span>
-        <span class="item">Signo de Contractura Capsular: <span id="MD_Contractura"></span></span>
-        <span class="item">Trasudado de Silicon: <span id="MD_Trasudado"></span></span>
-        <span class="item">Señalar: <span id="MD_Trasudado_Senalar"></span></span>
+      <div class="fila-clinica">
+        <span class="campo-item">Presencia de Prótesis: <span data-sino="MD_Protesis"></span></span>
+        <span class="campo-item">Alteración: <span data-sino="MD_Protesis_Alt"></span></span>
+        <span class="campo-senalar">Señalar: <span class="linea-relleno" id="MD_Protesis_Alt_Senalar"></span></span>
       </div>
-      <div class="linea">
-        <span class="item">Herniación de la Prótesis: <span id="MD_Herniacion"></span></span>
-        <span class="item">Adenopatía Axilar: <span id="MD_Adenopatia"></span></span>
-        <span class="item">Adenopatía Axilar Patológica: <span id="MD_Adenopatia_Pat"></span></span>
-        <span class="item">Señalar: <span id="MD_Adenopatia_Pat_Senalar"></span></span>
+      <div class="fila-clinica">
+        <span class="campo-item">Ruptura Intracapsular: <span data-sino="MD_Ruptura_Intra"></span></span>
+        <span class="campo-item">Extracap.: <span data-sino="MD_Ruptura_Extra"></span></span>
+        <span class="campo-item">Signo de Contractura Capsular: <span data-sino="MD_Contractura"></span></span>
       </div>
-      <div class="alteraciones">Observación: <span id="MD_Observacion"></span></div>
+      <div class="fila-clinica">
+        <span class="campo-item">Trasudado de Silicon: <span data-sino="MD_Trasudado"></span></span>
+        <span class="campo-senalar">Señalar: <span class="linea-relleno" id="MD_Trasudado_Senalar"></span></span>
+        <span class="campo-item">Herniación de la Prótesis: <span data-sino="MD_Herniacion"></span></span>
+      </div>
+      <div class="fila-clinica">
+        <span class="campo-item">Adenopatía Axilar: <span data-sino="MD_Adenopatia"></span></span>
+        <span class="campo-item">Patológica: <span data-sino="MD_Adenopatia_Pat"></span></span>
+        <span class="campo-senalar">Señalar: <span class="linea-relleno" id="MD_Adenopatia_Pat_Senalar"></span></span>
+      </div>
+      <div class="fila-clinica">
+        <span class="campo-senalar">Observación: <span class="linea-relleno" id="MD_Observacion"></span></span>
+      </div>
     </div>
 
     <!-- MAMA IZQUIERDA -->
-    <div class="seccion">
-      <div class="linea">
-        <span class="item">Mama Izquierda: Predominio de tejido Fibroglandular: <span id="MI_Fibroglandular"></span></span>
-        <span class="item">Predominio de tejido Adiposo: <span id="MI_Adiposo"></span></span>
-        <span class="item">Cond. Galact. Dilatados: <span id="MI_Cond_Galact"></span></span>
+    <div class="bloque-clinico">
+      <div class="encabezado-mama">
+        <span class="subrayado-titulo">Mama Izquierda:</span>
+        <span class="campo-item">Predominio de tejido Fibroglandular: <span data-sino="MI_Fibroglandular"></span></span>
+        <span class="campo-item">Predominio de tejido Adiposo: <span data-sino="MI_Adiposo"></span></span>
       </div>
-      <div class="linea">
-        <span class="item">LOE: <span id="MI_LOE"></span></span>
-        <span class="item">Calcificación: <span id="MI_Calcificacion"></span></span>
-        <span class="item">Quiste: <span id="MI_Quiste"></span></span>
-        <span class="item">Presencia de Prótesis: <span id="MI_Protesis"></span></span>
-        <span class="item">Prótesis Alteración: <span id="MI_Protesis_Alt"></span></span>
-        <span class="item">Señalar: <span id="MI_Protesis_Alt_Senalar"></span></span>
+      <div class="fila-clinica">
+        <span class="campo-item">Cond. Galact. Dilatados: <span data-sino="MI_Cond_Galact"></span></span>
+        <span class="campo-item">LOE: <span data-sino="MI_LOE"></span></span>
+        <span class="campo-item">Calcificación: <span data-sino="MI_Calcificacion"></span></span>
+        <span class="campo-item">Quiste: <span data-sino="MI_Quiste"></span></span>
       </div>
-      <div class="linea">
-        <span class="item">Ruptura Intracapsular: <span id="MI_Ruptura_Intra"></span></span>
-        <span class="item">Ruptura Extracap.: <span id="MI_Ruptura_Extra"></span></span>
-        <span class="item">Signo de Contractura Capsular: <span id="MI_Contractura"></span></span>
-        <span class="item">Trasudado de Silicon: <span id="MI_Trasudado"></span></span>
-        <span class="item">Señalar: <span id="MI_Trasudado_Senalar"></span></span>
+      <div class="fila-clinica">
+        <span class="campo-item">Presencia de Prótesis: <span data-sino="MI_Protesis"></span></span>
+        <span class="campo-item">Alteración: <span data-sino="MI_Protesis_Alt"></span></span>
+        <span class="campo-senalar">Señalar: <span class="linea-relleno" id="MI_Protesis_Alt_Senalar"></span></span>
       </div>
-      <div class="linea">
-        <span class="item">Herniación de la Prótesis: <span id="MI_Herniacion"></span></span>
-        <span class="item">Adenopatía Axilar: <span id="MI_Adenopatia"></span></span>
-        <span class="item">Adenopatía Axilar Patológica: <span id="MI_Adenopatia_Pat"></span></span>
-        <span class="item">Señalar: <span id="MI_Adenopatia_Pat_Senalar"></span></span>
+      <div class="fila-clinica">
+        <span class="campo-item">Ruptura Intracapsular: <span data-sino="MI_Ruptura_Intra"></span></span>
+        <span class="campo-item">Extracap.: <span data-sino="MI_Ruptura_Extra"></span></span>
+        <span class="campo-item">Signo de Contractura Capsular: <span data-sino="MI_Contractura"></span></span>
       </div>
-      <div class="alteraciones">Observación: <span id="MI_Observacion"></span></div>
+      <div class="fila-clinica">
+        <span class="campo-item">Trasudado de Silicon: <span data-sino="MI_Trasudado"></span></span>
+        <span class="campo-senalar">Señalar: <span class="linea-relleno" id="MI_Trasudado_Senalar"></span></span>
+        <span class="campo-item">Herniación de la Prótesis: <span data-sino="MI_Herniacion"></span></span>
+      </div>
+      <div class="fila-clinica">
+        <span class="campo-item">Adenopatía Axilar: <span data-sino="MI_Adenopatia"></span></span>
+        <span class="campo-item">Patológica: <span data-sino="MI_Adenopatia_Pat"></span></span>
+        <span class="campo-senalar">Señalar: <span class="linea-relleno" id="MI_Adenopatia_Pat_Senalar"></span></span>
+      </div>
+      <div class="fila-clinica">
+        <span class="campo-senalar">Observación: <span class="linea-relleno" id="MI_Observacion"></span></span>
+      </div>
     </div>
 
     <!-- CONCLUSIONES Y RECOMENDACIONES -->
-    <div class="bloque-final">
-      <div class="linea">Conclusiones: <span id="Conclusiones"></span></div>
-      <div class="linea">Recomendaciones: <span id="Recomendaciones"></span></div>
+    <div class="bloque-cierre">
+      <div class="linea-cierre">Conclusiones: <span id="Conclusiones"></span></div>
+      <div class="linea-cierre">Recomendaciones: <span id="Recomendaciones"></span></div>
     </div>
   </div>
 
@@ -345,7 +379,7 @@
     <div class="firma-area">
       <div class="linea-firma"></div>
       <div class="dr-firma-texto">Dr. Julio A. Linares Vargas</div>
-      <div class="dr-firma-texto" style="font-weight: normal; font-size: 9pt;">Ecografista</div>
+      <div class="dr-firma-texto" style="font-weight: normal; font-size: 8.5pt;">Ecografista</div>
       <div class="cedula-firma">C.I. V-12.638.442<br>MPPS/CMEM: 123334</div>
     </div>
     <div class="info-contacto-pie">
@@ -355,6 +389,57 @@
 </div>
 
 <script>
+  function normalizarClave(str) {
+    return (str || '').trim().toLowerCase()
+      .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+      .replace(/[._\s:]+/g, '');
+  }
+
+  function renderizarSiNo(contenedor, rawVal) {
+    const limpio = (rawVal || '').trim().toLowerCase()
+      .normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+
+    let marcaSi = ' ';
+    let marcaNo = ' ';
+
+    if (limpio === 'si' || limpio === 's' || limpio === 'true' || limpio === '1') {
+      marcaSi = 'X';
+    } else if (limpio === 'no' || limpio === 'n' || limpio === 'false' || limpio === '0') {
+      marcaNo = 'X';
+    }
+
+    contenedor.textContent = `Si:(${marcaSi}) No:(${marcaNo})`;
+  }
+
   window.addEventListener('DOMContentLoaded', () => {
+    const sinoElements = document.querySelectorAll('[data-sino]');
+    sinoElements.forEach(el => renderizarSiNo(el, ''));
+
     const cleanSearch = window.location.search.replace(/^\?+/, '');
-    const params = new URLSearchParams(clean
+    const params = new URLSearchParams(cleanSearch);
+
+    const valoresRecibidos = {};
+    params.forEach((value, key) => {
+      const decodedValue = decodeURIComponent(value.replace(/\+/g, ' '));
+      valoresRecibidos[normalizarClave(key)] = decodedValue;
+    });
+
+    sinoElements.forEach(el => {
+      const clave = normalizarClave(el.getAttribute('data-sino'));
+      if (Object.prototype.hasOwnProperty.call(valoresRecibidos, clave)) {
+        renderizarSiNo(el, valoresRecibidos[clave]);
+      }
+    });
+
+    const idElements = document.querySelectorAll('[id]');
+    idElements.forEach(elem => {
+      const clave = normalizarClave(elem.id);
+      if (Object.prototype.hasOwnProperty.call(valoresRecibidos, clave)) {
+        elem.textContent = valoresRecibidos[clave];
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
